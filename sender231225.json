@@ -50,8 +50,8 @@
       "type": "n8n-nodes-base.microsoftSql",
       "typeVersion": 1.1,
       "position": [
-        -496,
-        128
+        -480,
+        80
       ],
       "id": "c7a934f5-8105-482a-ab4c-e327b8d4ee67",
       "name": "development1",
@@ -358,6 +358,30 @@
         1696
       ],
       "id": "74f210e1-06d4-4e0b-b9e1-1972eec5acc1"
+    },
+    {
+      "parameters": {
+        "fromEmail": "pohekarkrushna23@gmail.com",
+        "toEmail": "shlok6624@gmail.com",
+        "html": "=<h3>⚠ Database Changes Detected</h3>\n<p>The following changes have been committed to the Development environment and require your review:</p>\n\n<ul>\n  <li><strong>Procedure:</strong> {{ $json.procedure_name }}</li>\n  <li><strong>Type:</strong> {{ $json.change_type }}</li>\n  <li><strong>Environments:</strong> {{ $json.dev_database }} ⮕ {{ $json.prod_database }}</li>\n</ul>\n\n<p>\n  <a href=\"http://localhost:5678/webhook/admin-config-step1\" style=\"background-color: #007bff; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;\">\n    View & Approve Changes\n  </a>\n</p>\n\n<p><em>Please click the button above to view the code differences and take action.</em></p>",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [
+        1600,
+        -144
+      ],
+      "id": "5c5f1b3c-e059-4acd-99e1-1fd8efb3a199",
+      "name": "Send email",
+      "webhookId": "0594043e-e5a4-4347-b35e-1fe66423b650",
+      "executeOnce": true,
+      "credentials": {
+        "smtp": {
+          "id": "XYsVz03dQXcnI6rp",
+          "name": "SMTP account"
+        }
+      }
     }
   ],
   "pinData": {},
@@ -564,6 +588,11 @@
           }
         ]
       ]
+    },
+    "changes in table2": {
+      "main": [
+        []
+      ]
     }
   },
   "active": true,
@@ -571,8 +600,9 @@
     "executionOrder": "v1",
     "availableInMCP": false
   },
-  "versionId": "7ba523c8-724c-4812-a1ff-b143fe1768fc",
+  "versionId": "d5c53c42-fbf4-40a3-8b44-3c74c6744e18",
   "meta": {
+    "templateCredsSetupCompleted": true,
     "instanceId": "48e133b341406c10ba914412567a3bd7df54048f04da58f11a9468e78bac8d34"
   },
   "id": "DJytcVGeFylrNeX5",

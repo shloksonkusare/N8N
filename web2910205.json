@@ -350,6 +350,56 @@
           "name": "Microsoft SQL account"
         }
       }
+    },
+    {
+      "parameters": {
+        "fromEmail": "pohekarkrushna23@gmail.com",
+        "toEmail": "shlok6624@gmail.com",
+        "subject": "⚠Procedure Rejected⚠",
+        "html": "=<h3>⚠ Procedure Rejected</h3>\n<p>The following changes have been committed to the Development environment and require your review:</p>\n\n<ul>\n  <li><strong>Procedure:</strong> {{ $json.procedure_name }}</li>\n  <li><strong>Type:</strong> {{ $json.change_type }}</li>\n  <li><strong>Environments:</strong> {{ $json.dev_database }} ⮕ {{ $json.prod_database }}</li>\n</ul>\n\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [
+        -1216,
+        464
+      ],
+      "id": "834abb22-bc12-4d1c-9055-ab79c70aa681",
+      "name": "reject mail",
+      "webhookId": "0594043e-e5a4-4347-b35e-1fe66423b650",
+      "executeOnce": true,
+      "credentials": {
+        "smtp": {
+          "id": "XYsVz03dQXcnI6rp",
+          "name": "SMTP account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "fromEmail": "pohekarkrushna23@gmail.com",
+        "toEmail": "shlok6624@gmail.com",
+        "subject": "Procedure Approved",
+        "html": "=<h3>⚠ Procedure Approved</h3>\n<p>The following changes have been committed to the Development environment and require your review:</p>\n\n<ul>\n  <li><strong>Procedure:</strong> {{ $json.procedure_name }}</li>\n  <li><strong>Type:</strong> {{ $json.change_type }}</li>\n  <li><strong>Environments:</strong> {{ $json.dev_database }} ⮕ {{ $json.prod_database }}</li>\n</ul>\n\n\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [
+        -144,
+        -320
+      ],
+      "id": "363c44f6-c0ed-41d9-98da-2e8ad4bf08ed",
+      "name": "reject mail1",
+      "webhookId": "0594043e-e5a4-4347-b35e-1fe66423b650",
+      "executeOnce": true,
+      "credentials": {
+        "smtp": {
+          "id": "XYsVz03dQXcnI6rp",
+          "name": "SMTP account"
+        }
+      }
     }
   ],
   "pinData": {},
@@ -494,6 +544,11 @@
             "node": "approe",
             "type": "main",
             "index": 0
+          },
+          {
+            "node": "reject mail1",
+            "type": "main",
+            "index": 0
           }
         ]
       ]
@@ -508,6 +563,11 @@
         [
           {
             "node": "reject",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "reject mail",
             "type": "main",
             "index": 0
           }
@@ -552,7 +612,7 @@
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "8dc1982c-a6ac-4c6e-8b9c-90198e369fe2",
+  "versionId": "604533d9-50ad-4bb5-8359-4cb4e34a7e7b",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "48e133b341406c10ba914412567a3bd7df54048f04da58f11a9468e78bac8d34"
